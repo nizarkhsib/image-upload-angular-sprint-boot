@@ -1,0 +1,57 @@
+<!--
+<div class="container">
+    <div class="row">
+        <div class="col s8 offset-2">
+            <div class="card-panel teal lighten-2">
+                <h4 class="center white-text">Image Upload</h4>
+            </div>
+            <form #imageForm=ngForm (ngSubmit)="OnSubmit()">
+
+                <div class="row">
+                    <div class="form-control">
+                        <label for="Caption">Caption</label>
+                        <input type="text" [(ngModel)]="caption" name="Caption" id="Caption" required>
+
+                    </div>
+                </div>
+                <img [src]="imageUrl" style="width:250px;height:250px">
+                <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
+                <div class="row">
+                    <button type="submit" class="btn btn-primary" [disabled]="Image.value=='' || !imageForm.valid">Submit</button>
+                </div>
+            </form>
+            <div class="alert alert-success" role="alert" *ngIf="successUpload">
+                Image <b>{{lastUploadedImage.fileName}}</b> was successfuly uploaded
+            </div>
+        </div>
+    </div>
+</div>
+-->
+
+<div class="container">
+    <div class="alert alert-success" role="alert" *ngIf="successUpload">
+        Image <b>{{lastUploadedImage.fileName}}</b> was successfuly uploaded
+    </div>
+    <form class="text-center border border-light p-3" #imageForm=ngForm (ngSubmit)="OnSubmit()">
+        <div class="form-group row">
+            <div class="col-sm-2 text-left">
+                <label class="col-form-label">Caption :</label>
+            </div>
+            <div class="col-sm-10">
+                <input type="Caption" class="form-control" [(ngModel)]="caption" name="Caption" placeholder="Caption" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <img [src]="imageUrl" style="width:250px;height:250px">
+        </div>
+        <div class="input-group">
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
+                <label class="custom-file-label">Choose file</label>
+            </div>
+        </div>
+        <button class="btn btn-primary btn-block my-4" [disabled]="Image.value=='' || !imageForm.valid" type="submit">Upload</button>
+    </form>
+
+</div>

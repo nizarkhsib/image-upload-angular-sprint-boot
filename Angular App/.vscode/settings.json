@@ -1,0 +1,7 @@
+{
+    "beautify.config": {
+        "indent_size": 4
+    },
+    "editor.formatOnSave": true,
+    "tslint.autoFixOnSave": true
+}
